@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 export const ChangeProfile = (props) => {
 
@@ -8,10 +10,12 @@ export const ChangeProfile = (props) => {
         setNewUsername(e.target.value);
     }
 
+    const { setuserName } = useContext(AppContext);
+
     return (
         <div className="change-profile-component">
             <input onChange={handleUsername} type="text" />
-            <button onClick={() => { props.setusername(newUsername) }}> Submit </button>
+            <button onClick={() => { setuserName(newUsername) }}> Submit </button>
         </div >
     )
 }
